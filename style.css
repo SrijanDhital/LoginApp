@@ -95,7 +95,7 @@ a{
 
 /* form */
 .form_box {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     max-width: 400px;
@@ -115,6 +115,9 @@ a{
     -10px 0 80px #968214,
     10px 0 80px #0ff;
     /* box-shadow: 0px 0px 20px 5px rgba(39, 135, 42, 0.8); */
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s ease-out;
 }
 
 .form_box h2 {
@@ -122,6 +125,26 @@ a{
     /* color: #6E5F0C; */
     color: rgba(255, 255, 255);
     text-align: center;
+}
+
+
+.home.show .form_box{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
+.signupform{
+    display: none;
+}
+
+.form_box.activated .signupform{
+    display: block;
+}
+
+.form_box.activated .loginform{
+    display: none;
 }
 
 .box {
@@ -151,7 +174,7 @@ a{
 
 .box ::placeholder {
     /* color: #2A5265; */
-    color: #E7C923;
+    color: rgba(231, 202, 35, 0.3);
 }
 
 .box i {
@@ -164,6 +187,7 @@ a{
     font-size: 20px;
 }
 
+.box i.user,
 .box i.email,
 .box i.password {
     left: 0;
@@ -178,6 +202,7 @@ a{
     color: rgba(255, 255, 255);;
 }
 
+.box input:focus ~ i.user,
 .box input:focus ~ i.email,
 .box input:focus ~ i.password {
     color: rgba(255, 255, 255);
