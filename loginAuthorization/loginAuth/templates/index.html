@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+{% load static %}
+{% load socialaccount %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <!-- <link rel="icon" href="./favicon.ico" type="image/x-icon"> -->
+    <script src="https://kit.fontawesome.com/702f33ecf9.js" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+    <!-- header -->
+    <header class="header">
+        <nav class="nav">
+        <a href="#" class="main_logo">Shadow</a>
+
+        <ul class="nav_menu">
+            <li class="nav_menus">
+                <a href="#" class="nav_item">Home</a>
+                <a href="#" class="nav_item">Gallary</a>
+                <a href="#" class="nav_item">Services</a>
+                <a href="#" class="nav_item">Contact</a>
+            </li>
+        </ul>
+        <button class="login" id="loginOpen">Login</button>
+    </nav>
+    </header>
+
+    <section class="home">
+      <div class="form_box">
+        <!-- login form -->
+        <div class="loginform">
+          <form action="#">
+            <h2>Login</h2>
+            <div class="box">
+              <input type="email" placeholder="Enter your email" required />
+              <i class="fa-regular fa-envelope email"></i>
+            </div>
+            <div class="box">
+              <input type="password" placeholder="Enter your password" required />
+              <i class="fa-solid fa-lock password"></i>
+              <i class="fa-regular fa-eye-slash hidden"></i>
+            </div>
+
+            <div class="options">
+              <span class="checkbox">
+                <input type="checkbox" id="check">
+                <label for="check">Remember me</label>
+              </span>
+              <a href="#" class="forgot_pass">Forgot Password?</a>
+            </div>
+
+            <button class="loginbtn">Login</button>
+
+            <div class="login_signup">
+              Don't have an account? <a href="#" id="signupViewBtn">Signup</a>
+            </div>
+          </form>
+        </div>
+
+        <!-- signup form -->
+        <div class="signupform">
+          <form action="#" method="POST">
+            <h2>Signup</h2>
+            <div class="box">
+              <input type="text" placeholder="Full Name" required />
+              <i class="fa-regular fa-user user"></i>
+            </div>
+            <div class="box">
+              <input type="email" placeholder="Enter your email" required />
+              <i class="fa-regular fa-envelope email"></i>
+            </div>
+            <div class="box">
+              <input type="password" placeholder="Create a password" required />
+              <i class="fa-solid fa-lock password"></i>
+              <i class="fa-regular fa-eye-slash hidden"></i>
+            </div>
+            <div class="box">
+              <input type="password" placeholder="Re-enter password" required />
+              <i class="fa-solid fa-lock password"></i>
+              <i class="fa-regular fa-eye-slash hidden"></i>
+            </div>
+
+            <button class="loginbtn">Signup</button>
+
+          </form>
+          <a href="{% provider_login_url 'google' %}">
+            <button class="loginbtn">Signup With Google</button>
+          </a>
+
+          <div class="login_signup">
+            Already Have an Account? <a href="#" id="loginViewBtn">Login</a>
+          </div>
+        </div>
+      </div>
+    </section>
+      <script src="{% static 'script.js' %}"></script>
+  </body>
+</html>

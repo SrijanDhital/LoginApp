@@ -1,0 +1,273 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Mukta&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fuggles&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Mukta', sans-serif;
+}
+
+::selection {
+    background: black;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* header */
+.header{
+    position: fixed;
+    height: 80px;
+    width: 100%;
+    background: #414E49;
+    z-index: 100;
+    padding: 20px;
+}
+
+.nav {
+    max-width: 1920px;
+    width: 100%;
+    margin: 0 auto;
+    /* background: yellow; */
+}
+
+.nav,
+.nav_menus{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav_menus{
+    column-gap: 50px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.main_logo {
+    font-size: 50px;
+    font-family: 'Fuggles', cursive;
+    font-weight: 600;
+    color: #2c9a30;
+}
+
+.nav_item,
+.login,
+.logout {
+    color: white;
+    transition: 0.3s;
+}
+
+.nav_item:hover {
+    color: #d7cbbb;
+}
+
+.login,
+.logout {
+    padding: 5px 25px;
+    border: 2px solid #2c9a30;
+    background: transparent;
+    border-radius: 5px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.login:hover,
+.logout:hover {
+    background-color: #2c9a30;
+    color: black;
+}
+
+.login:active,
+.logout:active {
+    scale: 0.95;
+}
+
+/* home */
+.home {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-image: url("./images/secureBackground.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+/* form */
+.form_box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    max-width: 400px;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    z-index: 101;
+    padding: 40px;
+    /* border: 1px solid #2c9a30; */
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    /* background: rgba(255, 255, 255, 0); */
+    box-shadow:
+    inset 20px 0 80px #968214,
+    inset -20px 0 80px #0ff,
+    inset 20px 0 300px #968214,
+    inset -20px 0 300px #0ff,
+    -10px 0 80px #968214,
+    10px 0 80px #0ff;
+    /* box-shadow: 0px 0px 20px 5px rgba(39, 135, 42, 0.8); */
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s ease-out;
+}
+
+.form_box h2 {
+    font-size: 40px;
+    /* color: #6E5F0C; */
+    color: rgba(255, 255, 255);
+    text-align: center;
+}
+
+
+.home.show .form_box{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+
+.signupform{
+    display: none;
+}
+
+.form_box.activated .signupform{
+    display: block;
+}
+
+.form_box.activated .loginform{
+    display: none;
+}
+
+.box {
+    position: relative;
+    margin-top: 15px;
+    width: 100%;
+    height: 40px;
+}
+
+.box input {
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0 40px;
+    transition: all 0.2s ease;
+    border-bottom: 1.5px solid #E98C5D;
+    /* color: #2A5265; */
+    color: #E7C923;
+    font-size: 17px;
+}
+
+.box input:focus {
+    border-color: rgba(255, 255, 255);
+}
+
+.box ::placeholder {
+    /* color: #2A5265; */
+    color: rgba(231, 202, 35, 0.3);
+}
+
+.box i {
+    position: absolute;
+    /* color: #6E5F0C; */
+    color: rgba(255, 255, 255, 0.6);
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.2s ease;
+    font-size: 20px;
+}
+
+.box i.user,
+.box i.email,
+.box i.password {
+    left: 0;
+}
+
+.box i.hidden {
+    right: 0;
+    cursor: pointer;
+}
+
+.box i.hidden:active {
+    color: rgba(255, 255, 255);;
+}
+
+.box input:focus ~ i.user,
+.box input:focus ~ i.email,
+.box input:focus ~ i.password {
+    color: rgba(255, 255, 255);
+}
+
+.options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.checkbox {
+    display: flex;
+    white-space: nowrap;
+    column-gap: 5px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.checkbox:hover {
+    color: rgba(255, 255, 255);
+}
+
+.checkbox input {
+    accent-color: #E7C923;
+    cursor: pointer;
+}
+
+.checkbox label {
+    cursor: pointer;
+}
+
+.form_box a {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.form_box a:hover {
+    color: rgba(255, 255, 255);
+}
+
+
+.form_box .loginbtn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    color: white;
+    background: #414E49;
+    border-radius: 10px;
+    font-size: 22px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.form_box .loginbtn:hover {
+    background-color: #2c9a30;
+    color: black;
+}
+
+.login_signup {
+    text-align: center;
+    margin-top: 20px;
+}
